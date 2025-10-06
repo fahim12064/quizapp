@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz in Progress</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <h2 id="quizTitle"></h2>
-  <div class="timerSubmit">
-    <div id="timer">Time: 00:00</div>
-    <button id="submitQuiz">Submit</button>
-  </div>
-  <div id="quizContainer"></div>
-</div>
-<script src="script.js"></script>
+    <div class="container">
+        <header>
+            <h1 id="quizTitle">Quiz</h1>
+        </header>
+        <main id="quizContainer">
+            <!-- প্রশ্নগুলো এখানে JS দিয়ে লোড হবে -->
+        </main>
+        
+        <!-- এই অংশটি সবসময় নিচে থাকবে -->
+        <footer class="quiz-footer">
+            <div id="timer">Time: 00:00</div>
+            <button id="submitQuizBtn">Submit Quiz</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

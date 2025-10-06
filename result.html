@@ -1,18 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz Result</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <h1>Result for <span id="userName"></span></h1>
-  <div id="score"></div>
-  <div id="answers"></div>
-  <a href="index.html"><button>Back to Home</button></a>
-</div>
-<script src="script.js"></script>
+    <div class="container">
+        <header>
+            <h1>Quiz Result</h1>
+        </header>
+        <main>
+            <div class="result-summary">
+                <p>Well done, <strong id="userName"></strong>!</p>
+                <h2>Your Score: <span id="score">0 / 0</span></h2>
+            </div>
+            <div id="resultDetails">
+                <!-- উত্তরগুলো এখানে দেখানো হবে -->
+            </div>
+            <a href="index.html" class="btn-home">Play Again</a>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('userName') || 'User';
+            const quizData = JSON.parse(localStorage.getItem('quizData'));
+            const userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
+
+            document.getElementById('userName').innerText = userName;
+
+            let score = 0;
+            const totalQuestions = quizData.questions.length;
+            const resultDetailsContainer = document.getElementById('resultDetails');
+
+            quizData.questions.forEach((q, index) => {
+                const userAnswerIndex = userAnswers[q.id];
+                const correctAnswerIndex = q.rightAnswerIndex;
+                const isCorrect = userAnswerIndex === correctAnswerIndex;
+
+                if (isCorrect) {
+                    score++;
+                }
+
+                const questionResultDiv = document.createElement('div');
+                questionResultDiv.className = 'question-result';
+                
+                let optionsHtml = q.options.map((option, i) => {
+                    let className = '';
+                    if (i === correctAnswerIndex) {
+                        className = 'correct'; // সঠিক উত্তর সবুজ
+                    }
+                    if (i === userAnswerIndex && !isCorrect) {
+                        className = 'wrong'; // ব্যবহারকারীর ভুল উত্তর লাল
+                    }
+                    return `<div class="option ${className}">${option}</div>`;
+                }).join('');
+
+                questionResultDiv.innerHTML = `
+                    <p><strong>${index + 1}. ${q.text}</strong></p>
+                    ${optionsHtml}
+                `;
+                resultDetailsContainer.appendChild(questionResultDiv);
+            });
+
+            document.getElementById('score').innerText = `${score} / ${totalQuestions}`;
+        });
+    </script>
 </body>
 </html>

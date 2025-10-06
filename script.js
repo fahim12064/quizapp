@@ -1,81 +1,95 @@
-let quizData = [];
-let userAnswers = {};
-let timer;
-let timeLeft;
+document.addEventListener('DOMContentLoaded', () => {
+    const quizData = JSON.parse(localStorage.getItem('quizData'));
+    const userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
+    let timeLeft = localStorage.getItem('timeLeft') ? parseInt(localStorage.getItem('timeLeft')) : quizData.duration_minutes * 60;
+    let timerInterval;
 
-// Display user name
-document.getElementById('userNameDisplay').innerText = localStorage.getItem('userName') || '';
+    const quizContainer = document.getElementById('quizContainer');
+    const timerElement = document.getElementById('timer');
+    const submitBtn = document.getElementById('submitQuizBtn');
 
-// Load quiz.json
-fetch('quiz.json')
-.then(res=>res.json())
-.then(data=>{
-  quizData = data;
-  document.getElementById('quizTitle').innerText = quizData.title;
-  if(localStorage.getItem('userAnswers')){
-    userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
-  }
-  if(localStorage.getItem('timeLeft')){
-    timeLeft = parseInt(localStorage.getItem('timeLeft'));
-  } else {
-    timeLeft = quizData.duration_minutes * 60;
-  }
-  renderQuestions();
-  startTimer(timeLeft);
-})
-.catch(err=>console.error("Quiz JSON load failed:", err));
+    // কুইজের শিরোনাম সেট করা
+    document.getElementById('quizTitle').innerText = quizData.title;
 
-function renderQuestions(){
-  const container = document.getElementById('questions');
-  container.innerHTML = '';
-  quizData.questions.forEach((q, idx)=>{
-    const div = document.createElement('div');
-    div.classList.add('question');
-    div.innerHTML = `<p>${idx+1}. ${q.text}</p>`;
-    q.options.forEach((opt,i)=>{
-      const btn = document.createElement('div');
-      btn.classList.add('option');
-      btn.innerText = opt;
-      if(userAnswers[q.id]===i) btn.classList.add('selected');
-      btn.addEventListener('click', ()=>{
-        if(userAnswers[q.id]!==undefined) return;
-        userAnswers[q.id]=i;
-        localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
-        Array.from(btn.parentElement.children).forEach((el,j)=>{
-          el.classList.remove('selected');
-          if(j===i) el.classList.add('selected');
+    // প্রশ্নগুলো দেখানো
+    function renderQuestions() {
+        quizContainer.innerHTML = '';
+        quizData.questions.forEach((q, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `<p><strong>${index + 1}. ${q.text}</strong></p>`;
+
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+
+            q.options.forEach((option, i) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.innerText = option;
+                optionDiv.dataset.questionId = q.id;
+                optionDiv.dataset.optionIndex = i;
+
+                // যদি উত্তর আগে দেওয়া থাকে
+                if (userAnswers[q.id] !== undefined) {
+                    optionsDiv.classList.add('disabled');
+                    if (userAnswers[q.id] === i) {
+                        optionDiv.classList.add('selected');
+                    }
+                }
+
+                optionDiv.addEventListener('click', handleOptionSelect);
+                optionsDiv.appendChild(optionDiv);
+            });
+
+            questionDiv.appendChild(optionsDiv);
+            quizContainer.appendChild(questionDiv);
         });
-      });
-      div.appendChild(btn);
-    });
-    container.appendChild(div);
-  });
-}
-
-function startTimer(seconds){
-  timeLeft = seconds;
-  updateTimer();
-  timer = setInterval(()=>{
-    timeLeft--;
-    localStorage.setItem('timeLeft', timeLeft);
-    updateTimer();
-    if(timeLeft<=0){
-      clearInterval(timer);
-      submitQuiz();
     }
-  },1000);
-}
 
-function updateTimer(){
-  const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
-  const s = (timeLeft%60).toString().padStart(2,'0');
-  document.getElementById('timer').innerText = `Time: ${m}:${s}`;
-}
+    // উত্তর সিলেক্ট করার ফাংশন
+    function handleOptionSelect(event) {
+        const selectedOption = event.target;
+        const questionId = selectedOption.dataset.questionId;
+        const optionIndex = parseInt(selectedOption.dataset.optionIndex);
 
-document.getElementById('submitQuiz').addEventListener('click', submitQuiz);
+        // উত্তর সেভ করা
+        userAnswers[questionId] = optionIndex;
+        localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
 
-function submitQuiz(){
-  clearInterval(timer);
-  localStorage.setItem('quizData', JSON.stringify(quizData));
-  window.location.href='result.html';
-}
+        // অন্য অপশনগুলো ডিজেবল করা এবং সিলেক্টেড দেখানো
+        const optionsContainer = selectedOption.parentElement;
+        optionsContainer.classList.add('disabled');
+        
+        // শুধুমাত্র সিলেক্ট করা অপশন হাইলাইট করা
+        Array.from(optionsContainer.children).forEach(opt => opt.classList.remove('selected'));
+        selectedOption.classList.add('selected');
+    }
+
+    // টাইমার শুরু করা
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const seconds = (timeLeft % 60).toString().padStart(2, '0');
+            timerElement.innerText = `Time: ${minutes}:${s}`;
+            localStorage.setItem('timeLeft', timeLeft);
+
+            if (timeLeft <= 0) {
+                submitQuiz();
+            }
+        }, 1000);
+    }
+
+    // কুইজ সাবমিট করা
+    function submitQuiz() {
+        clearInterval(timerInterval);
+        localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+        window.location.href = 'result.html';
+    }
+
+    submitBtn.addEventListener('click', submitQuiz);
+
+    // কুইজ শুরু
+    renderQuestions();
+    startTimer();
+});

@@ -1,51 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz App</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <h1>Quiz App</h1>
-  <div id="quizBox">
-    <h2 id="quizTitleBox">Class 8 - English 2nd Paper Grammar & Composition Quiz</h2>
-    <p>Duration: 30 minutes</p>
-    <button id="startQuizBtn">Start Quiz</button>
-  </div>
-</div>
+    <div class="container">
+        <header>
+            <h1>Quiz App</h1>
+        </header>
+        <main>
+            <div class="quiz-card">
+                <h2 id="quizTitle">Loading Quiz...</h2>
+                <p>Total Time: <span id="quizDuration">...</span> Minutes</p>
+                <button id="startBtn">Start Quiz</button>
+            </div>
+        </main>
+    </div>
 
-<div id="nameModal" class="modal">
-  <div class="modal-content">
-    <h2>Enter Your Name</h2>
-    <input type="text" id="userName" placeholder="Your Name">
-    <button id="submitName">Start Quiz</button>
-  </div>
-</div>
+    <!-- নাম দেওয়ার জন্য Modal -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="userName" placeholder="Your Name" required>
+            <button id="submitNameBtn">Let's Go!</button>
+        </div>
+    </div>
 
-<script>
-  // ======= Homepage JS =======
-  const startBtn = document.getElementById('startQuizBtn');
-  const nameModal = document.getElementById('nameModal');
-  const submitNameBtn = document.getElementById('submitName');
-  const userNameInput = document.getElementById('userName');
+    <script>
+        // কুইজের তথ্য লোড করে দেখানো
+        fetch('quiz.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('quizTitle').innerText = data.title;
+                document.getElementById('quizDuration').innerText = data.duration_minutes;
+                localStorage.setItem('quizData', JSON.stringify(data)); // ডেটা সেভ করা
+            });
 
-  startBtn.addEventListener('click', () => {
-    nameModal.style.display = 'flex';
-  });
+        const startBtn = document.getElementById('startBtn');
+        const nameModal = document.getElementById('nameModal');
+        const submitNameBtn = document.getElementById('submitNameBtn');
+        const userNameInput = document.getElementById('userName');
 
-  submitNameBtn.addEventListener('click', () => {
-    const name = userNameInput.value.trim();
-    if (!name) return alert("Please enter your name!");
-    localStorage.setItem('userName', name);
-    window.location.href = 'quiz.html';
-  });
+        startBtn.addEventListener('click', () => {
+            nameModal.style.display = 'flex'; // Modal দেখানো
+        });
 
-  // close modal if clicked outside
-  window.addEventListener('click', (e)=>{
-    if(e.target===nameModal) nameModal.style.display='none';
-  });
-</script>
+        submitNameBtn.addEventListener('click', () => {
+            const name = userNameInput.value.trim();
+            if (name) {
+                localStorage.setItem('userName', name);
+                // আগের কুইজের উত্তর মুছে ফেলা
+                localStorage.removeItem('userAnswers');
+                localStorage.removeItem('timeLeft');
+                window.location.href = 'quiz.html'; // কুইজ পেজে পাঠানো
+            } else {
+                alert('Please enter your name.');
+            }
+        });
+    </script>
 </body>
 </html>
