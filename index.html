@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Welcome to Quiz App</h1>
+  <button id="startQuizBtn">Start Quiz</button>
+</div>
+
+<!-- Name Modal -->
+<div id="nameModal" class="modal">
+  <div class="modal-content">
+    <h2>Enter Your Name</h2>
+    <input type="text" id="userName" placeholder="Your Name">
+    <button id="submitName">Start Quiz</button>
+  </div>
+</div>
+
+<!-- Quiz Container -->
+<div id="quizContainer" class="hidden">
+  <h2 id="quizTitle"></h2>
+  <div id="timer">Time: 00:00</div>
+  <div id="questions"></div>
+  <button id="submitQuiz">Submit</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
