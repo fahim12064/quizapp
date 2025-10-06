@@ -5,21 +5,29 @@ body {
     color: #333;
     margin: 0;
     padding: 20px;
+    /* একটি নির্দিষ্ট উচ্চতা নিশ্চিত করা */
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .container {
     max-width: 700px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Flexbox লেআউট ব্যবহার করা */
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px); /* body padding বাদ দিয়ে পুরো উচ্চতা */
 }
 
 header h1 {
     text-align: center;
     color: #007bff;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin: 0;
+    flex-shrink: 0; /* হেডার যেন ছোট না হয় */
 }
 
 /* Home Page: Quiz Card */
@@ -29,8 +37,6 @@ header h1 {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
-
-.quiz-card h2 { margin-top: 0; }
 
 /* Buttons */
 button, .btn-home {
@@ -81,16 +87,20 @@ button:hover, .btn-home:hover {
 }
 
 /* Quiz Page */
+main.scrollable {
+    flex-grow: 1; /* বাকি সব জায়গা নিয়ে নেওয়া */
+    overflow-y: auto; /* কন্টেন্ট বেশি হলে স্ক্রলবার দেখানো */
+    padding: 0 20px; /* সাইডে প্যাডিং */
+}
+
 .quiz-footer {
-    position: sticky;
-    bottom: 0;
+    flex-shrink: 0; /* ফুটার যেন ছোট না হয় */
     background-color: #fff;
-    padding: 15px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #eee;
-    margin: 20px -20px -20px -20px; /* Container padding compensate */
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
