@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz Result</title>
+<title>Quiz</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-  <h1>Result for <span id="userName"></span></h1>
-  <div id="score"></div>
-  <div id="answers"></div>
-  <a href="index.html"><button>Back to Home</button></a>
+  <h2 id="quizTitle"></h2>
+  <div class="timerSubmit">
+    <div id="timer">Time: 00:00</div>
+    <button id="submitQuiz">Submit</button>
+  </div>
+  <div id="quizContainer"></div>
 </div>
 <script src="script.js"></script>
 </body>

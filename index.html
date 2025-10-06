@@ -8,25 +8,20 @@
 </head>
 <body>
 <div class="container">
-  <h1>Welcome to Quiz App</h1>
-  <button id="startQuizBtn">Start Quiz</button>
+  <h1>Quiz App</h1>
+  <div id="quizBox">
+    <h2 id="quizTitleBox">Class 8 - English 2nd Paper Grammar & Composition Quiz</h2>
+    <p>Duration: 30 minutes</p>
+    <button id="startQuizBtn">Start Quiz</button>
+  </div>
 </div>
 
-<!-- Name Modal -->
 <div id="nameModal" class="modal">
   <div class="modal-content">
     <h2>Enter Your Name</h2>
     <input type="text" id="userName" placeholder="Your Name">
     <button id="submitName">Start Quiz</button>
   </div>
-</div>
-
-<!-- Quiz Container -->
-<div id="quizContainer" class="hidden">
-  <h2 id="quizTitle"></h2>
-  <div id="timer">Time: 00:00</div>
-  <div id="questions"></div>
-  <button id="submitQuiz">Submit</button>
 </div>
 
 <script src="script.js"></script>
