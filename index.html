@@ -24,6 +24,28 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+  // ======= Homepage JS =======
+  const startBtn = document.getElementById('startQuizBtn');
+  const nameModal = document.getElementById('nameModal');
+  const submitNameBtn = document.getElementById('submitName');
+  const userNameInput = document.getElementById('userName');
+
+  startBtn.addEventListener('click', () => {
+    nameModal.style.display = 'flex';
+  });
+
+  submitNameBtn.addEventListener('click', () => {
+    const name = userNameInput.value.trim();
+    if (!name) return alert("Please enter your name!");
+    localStorage.setItem('userName', name);
+    window.location.href = 'quiz.html';
+  });
+
+  // close modal if clicked outside
+  window.addEventListener('click', (e)=>{
+    if(e.target===nameModal) nameModal.style.display='none';
+  });
+</script>
 </body>
 </html>
