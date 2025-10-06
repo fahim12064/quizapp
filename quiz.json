@@ -1,16 +1,336 @@
 {
-  "title": "Class 8 - English Grammar & Composition",
+  "title": "অষ্টম শ্রেণি - বিজ্ঞান - পরিবেশ এবং বাস্তুতন্ত্র",
   "duration_minutes": 25,
   "questions": [
-    {"id": "q1", "text": "Choose the correct form of verb: He ___ to school every day.", "options": ["go", "goes", "gone", "going"], "rightAnswerIndex": 1},
-    {"id": "q2", "text": "Choose the correct article: He is ___ honest man.", "options": ["a", "an", "the", "no article"], "rightAnswerIndex": 1},
-    {"id": "q3", "text": "Choose the correct preposition: She is fond ___ music.", "options": ["of", "in", "for", "at"], "rightAnswerIndex": 0},
-    {"id": "q4", "text": "Identify the correct sentence.", "options": ["He do not like mangoes.", "He does not likes mangoes.", "He does not like mangoes.", "He don’t like mangoes."], "rightAnswerIndex": 2},
-    {"id": "q5", "text": "Choose the correct passive form: They play football.", "options": ["Football played by them.", "Football is played by them.", "Football was played by them.", "Football has played by them."], "rightAnswerIndex": 1},
-    {"id": "q6", "text": "Fill in the blank: If I were a bird, I ___ fly in the sky.", "options": ["will", "can", "would", "may"], "rightAnswerIndex": 2},
-    {"id": "q7", "text": "Choose the correct comparative form: Rina is ___ than Mina.", "options": ["beautiful", "more beautiful", "most beautiful", "beautifuller"], "rightAnswerIndex": 1},
-    {"id": "q8", "text": "Choose the correct conjunction: I was tired ___ I went to bed early.", "options": ["so", "because", "and", "but"], "rightAnswerIndex": 0},
-    {"id": "q9", "text": "Choose the correct spelling.", "options": ["Enviroment", "Environment", "Environmant", "Enviranment"], "rightAnswerIndex": 1},
-    {"id": "q10", "text": "Choose the correct sentence in indirect speech: He said, 'I am tired.'", "options": ["He said that he is tired.", "He said that he was tired.", "He said he had tired.", "He said that I was tired."], "rightAnswerIndex": 1}
+    {
+      "id": "q1",
+      "text": "বাস্তুতন্ত্র কাকে বলে?",
+      "options": [
+        "কোনো নির্দিষ্ট স্থানের জীব সম্প্রদায়কে",
+        "কোনো পরিবেশের অজীব এবং জীব উপাদানসমূহের মধ্যে পারস্পরিক ক্রিয়া, আদান-প্রদান ইত্যাদি দ্বারা গড়ে ওঠা তন্ত্রকে",
+        "শুধুমাত্র কোনো পরিবেশের অজীব উপাদানকে",
+        "শুধুমাত্র কোনো পরিবেশের জীব উপাদানকে"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q2",
+      "text": "বাস্তুতন্ত্রের উপাদান কয় প্রকার?",
+      "options": [
+        "এক প্রকার",
+        "দুই প্রকার",
+        "তিন প্রকার",
+        "চার প্রকার"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q3",
+      "text": "নিচের কোনটি বাস্তুতন্ত্রের অজীব উপাদান?",
+      "options": [
+        "উদ্ভিদ",
+        "প্রাণী",
+        "মাটি",
+        "ব্যাকটেরিয়া"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q4",
+      "text": "উৎপাদক কারা?",
+      "options": [
+        "যারা নিজের খাদ্য নিজেরা তৈরি করতে পারে",
+        "যারা অন্যকে খাদ্য হিসেবে গ্রহণ করে",
+        "যারা মৃতদেহ থেকে পুষ্টি গ্রহণ করে",
+        "সকল প্রাণী"
+      ],
+      "rightAnswerIndex": 0
+    },
+    {
+      "id": "q5",
+      "text": "খাদক কত প্রকার?",
+      "options": [
+        "এক প্রকার",
+        "দুই প্রকার",
+        "তিন প্রকার",
+        "চার প্রকার"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q6",
+      "text": "তৃণভোজী প্রাণীরা কোন স্তরের খাদক?",
+      "options": [
+        "প্রথম স্তরের",
+        "দ্বিতীয় স্তরের",
+        "তৃতীয় স্তরের",
+        "সর্বোচ্চ স্তরের"
+      ],
+      "rightAnswerIndex": 0
+    },
+    {
+      "id": "q7",
+      "text": "নিচের কোনটি দ্বিতীয় স্তরের খাদক?",
+      "options": [
+        "গরু",
+        "ছাগল",
+        "পাখি",
+        "হরিণ"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q8",
+      "text": "বিয়োজক বা পচনকারী কারা?",
+      "options": [
+        "সবুজ উদ্ভিদ",
+        "তৃণভোজী প্রাণী",
+        "ব্যাকটেরিয়া ও ছত্রাক",
+        "মাংসাশী প্রাণী"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q9",
+      "text": "সুন্দরবনের বাস্তুতন্ত্রে কোনটি উৎপাদক?",
+      "options": [
+        "হরিণ",
+        "বাঘ",
+        "সুন্দরী ও গরান গাছ",
+        "বানর"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q10",
+      "text": "পুকুরের বাস্তুতন্ত্রে প্রথম স্তরের খাদক কোনটি?",
+      "options": [
+        "ফাইটোপ্লাঙ্কটন",
+        "জু-প্লাঙ্কটন ও জলজ কীটপতঙ্গ",
+        "ছোট মাছ",
+        "বড় মাছ"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q11",
+      "text": "খাদ্য শৃঙ্খল কী?",
+      "options": [
+        "অনেকগুলো খাদ্য জালের সমষ্টি",
+        "উদ্ভিদ থেকে শুরু করে বিভিন্ন প্রাণীর মধ্যে একে অন্যকে খাওয়ার মাধ্যমে শক্তির স্থানান্তর",
+        "শুধুমাত্র উৎপাদক ও বিয়োজকের সম্পর্ক",
+        "শুধুমাত্র বিভিন্ন স্তরের খাদকের সম্পর্ক"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q12",
+      "text": "একাধিক খাদ্য শৃঙ্খল একত্রিত হয়ে কী তৈরি করে?",
+      "options": [
+        "খাদ্য পিরামিড",
+        "খাদ্য জাল",
+        "বাস্তুতন্ত্র",
+        "শক্তি প্রবাহ"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q13",
+      "text": "পৃথিবীতে সকল শক্তির উৎস কী?",
+      "options": [
+        "উদ্ভিদ",
+        "পানি",
+        "বায়ু",
+        "সূর্য"
+      ],
+      "rightAnswerIndex": 3
+    },
+    {
+      "id": "q14",
+      "text": "বাস্তুতন্ত্রে শক্তি প্রবাহ কেমন?",
+      "options": [
+        "চক্রাকার",
+        "দ্বিমুখী",
+        "একমুখী",
+        "বহুমুখী"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q15",
+      "text": "বাস্তুতন্ত্রে পুষ্টিদ্রব্যের প্রবাহ কেমন?",
+      "options": [
+        "একমুখী",
+        "চক্রাকার",
+        "দ্বিমুখী",
+        "ত্রিমুখী"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q16",
+      "text": "কোনো বনের বাঘের সংখ্যা কমে গেলে কী ঘটবে?",
+      "options": [
+        "হরিণ ও শূকরের সংখ্যা বেড়ে যাবে",
+        "হরিণ ও শূকরের সংখ্যা কমে যাবে",
+        "গাছপালার পরিমাণ কমে যাবে",
+        "পরিবেশের ভারসাম্য রক্ষিত হবে"
+      ],
+      "rightAnswerIndex": 0
+    },
+    {
+      "id": "q17",
+      "text": "পুকুরের বাস্তুতন্ত্রে জু-প্লাঙ্কটন কী?",
+      "options": [
+        "উৎপাদক",
+        "প্রথম স্তরের খাদক",
+        "দ্বিতীয় স্তরের খাদক",
+        "বিয়োজক"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q18",
+      "text": "ম্যানগ্রোভ বনের মাটিতে সহজে বাতাস চলাচল করতে পারে না কেন?",
+      "options": [
+        "মাটি শুষ্ক থাকায়",
+        "মাটি কর্দমাক্ত হওয়ায়",
+        "মাটিতে লবণাক্ততা বেশি থাকায়",
+        "অতিরিক্ত গাছপালা থাকায়"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q19",
+      "text": "বাস্তুতন্ত্রের কোন উপাদানটি পরিবেশের ভারসাম্য রক্ষা করে?",
+      "options": [
+        "শুধুমাত্র উৎপাদক",
+        "শুধুমাত্র খাদক",
+        "শুধুমাত্র বিয়োজক",
+        "সকল উপাদান একত্রে"
+      ],
+      "rightAnswerIndex": 3
+    },
+    {
+      "id": "q20",
+      "text": "নিচের কোনটি জলজ বাস্তুতন্ত্রের উদাহরণ?",
+      "options": [
+        "বনভূমির বাস্তুতন্ত্র",
+        "মরুভূমির বাস্তুতন্ত্র",
+        "নদ-নদীর বাস্তুতন্ত্র",
+        "পার্বত্য অঞ্চলের বাস্তুতন্ত্র"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q21",
+      "text": "মানুষ কোন স্তরের খাদক?",
+      "options": [
+        "শুধুমাত্র প্রথম স্তরের",
+        "শুধুমাত্র দ্বিতীয় স্তরের",
+        "শুধুমাত্র তৃতীয় স্তরের",
+        "সর্বভুক"
+      ],
+      "rightAnswerIndex": 3
+    },
+    {
+      "id": "q22",
+      "text": "সবুজ উদ্ভিদ সালোকসংশ্লেষণের মাধ্যমে সৌরশক্তির কত ভাগ কাজে লাগায়?",
+      "options": [
+        "শতকরা ২ ভাগ",
+        "শতকরা ১০ ভাগ",
+        "শতকরা ৫০ ভাগ",
+        "শতকরা ১০০ ভাগ"
+      ],
+      "rightAnswerIndex": 0
+    },
+    {
+      "id": "q23",
+      "text": "বিয়োজোকরা মৃতদেহ থেকে কী তৈরি করে?",
+      "options": [
+        "শুধুমাত্র জৈব দ্রব্য",
+        "শুধুমাত্র অজৈব দ্রব্য",
+        "জৈব ও অজৈব উভয় প্রকার দ্রব্য",
+        "শক্তি"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q24",
+      "text": "পুকুরের বাস্তুতন্ত্রে তৃতীয় স্তরের খাদক কোনটি?",
+      "options": [
+        "ঝিনুক",
+        "ছোট মাছ",
+        "ব্যাঙ",
+        "বক"
+      ],
+      "rightAnswerIndex": 3
+    },
+    {
+      "id": "q25",
+      "text": "পরিবেশের ভারসাম্য রক্ষায় কোনটি প্রয়োজন?",
+      "options": [
+        "খাদকের সংখ্যা বৃদ্ধি",
+        "উৎপাদকের সংখ্যা হ্রাস",
+        "বাস্তুতন্ত্রের স্বনিয়ন্ত্রণ",
+        "বিয়োজকের অনুপস্থিতি"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q26",
+      "text": "জীব উপাদানের অন্তর্ভুক্ত নয় কোনটি?",
+      "options": [
+        "উৎপাদক",
+        "খাদক",
+        "বিয়োজক",
+        "আলো"
+      ],
+      "rightAnswerIndex": 3
+    },
+    {
+      "id": "q27",
+      "text": "সুন্দরবনের উল্লেখযোগ্য প্রাণী কোনটি?",
+      "options": [
+        "জিরাফ",
+        "রয়েল বেঙ্গল টাইগার",
+        "সিংহ",
+        "জেব্রা"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q28",
+      "text": "শক্তি প্রবাহের প্রতিটি ধাপে শক্তি কী হয়?",
+      "options": [
+        "বৃদ্ধি পায়",
+        "হ্রাস পায়",
+        "অপরিবর্তিত থাকে",
+        "চক্রাকারে আবর্তিত হয়"
+      ],
+      "rightAnswerIndex": 1
+    },
+    {
+      "id": "q29",
+      "text": "কোনো একটি পরিবেশে জীব ও অজীব উপাদানের সম্পর্ককে কী বলে?",
+      "options": [
+        "খাদ্য শৃঙ্খল",
+        "খাদ্য জাল",
+        "বাস্তুতন্ত্র",
+        "শক্তি প্রবাহ"
+      ],
+      "rightAnswerIndex": 2
+    },
+    {
+      "id": "q30",
+      "text": "ফাইটোপ্লাঙ্কটন কী?",
+      "options": [
+        "ভাসমান ক্ষুদ্র আণুবীক্ষণিক প্রাণী",
+        "ভাসমান ক্ষুদ্র আণুবীক্ষণিক উদ্ভিদ",
+        "বড় জলজ উদ্ভিদ",
+        "বড় জলজ প্রাণী"
+      ],
+      "rightAnswerIndex": 1
+    }
   ]
 }
