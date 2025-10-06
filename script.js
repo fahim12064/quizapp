@@ -37,19 +37,17 @@ function renderQuestions(){
       btn.classList.add('option');
       btn.innerText = opt;
       // restore previous answer
-      if(userAnswers[q.id]!==undefined){
-        btn.classList.add('disabled');
-        if(i===q.rightAnswerIndex) btn.classList.add('correct');
-        if(i===userAnswers[q.id] && i!==q.rightAnswerIndex) btn.classList.add('wrong');
+      if(userAnswers[q.id]!==undefined && userAnswers[q.id]===i){
+        btn.classList.add('selected');
       }
       btn.addEventListener('click',()=>{
         if(userAnswers[q.id]!==undefined) return;
         userAnswers[q.id]=i;
         localStorage.setItem('userAnswers',JSON.stringify(userAnswers));
+        // mark selected only
         Array.from(btn.parentElement.children).forEach((el,j)=>{
-          el.classList.add('disabled');
-          if(j===q.rightAnswerIndex) el.classList.add('correct');
-          if(j===i && j!==q.rightAnswerIndex) el.classList.add('wrong');
+          el.classList.remove('selected');
+          if(j===i) el.classList.add('selected');
         });
       });
       div.appendChild(btn);
